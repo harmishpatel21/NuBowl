@@ -1,0 +1,112 @@
+NuBowl – Healthy Oats & Smoothies
+Objective: Create a clean, modern, and minimalist one-page website for NuBowl, a Canadian health food brand specializing in overnight oats and protein smoothies. The site should evoke freshness, convenience, and wellness with a calming color palette, smooth animations, and intuitive UX.
+
+Brand & Visual Identity
+Logo: Placeholder (clean, minimalist, fits the vibe)
+
+Tagline: "Grab, Go and Glow."
+
+Color Palette:
+
+Primary: #6A9C89 (soft green)
+
+Secondary: #C1D8C3 (mint), #FFF5E4 (cream), #FFA725 (warm accent)
+
+Fonts: Poppins (sans-serif, modern) or Inter (clean readability)
+
+Visual Style:
+
+Airy, lots of white space
+
+Soft rounded corners on cards/buttons
+
+Delicate food photography (placeholder: oats/smoothies on neutral backgrounds)
+
+Subtle animations (fade-ins, smooth scrolling)
+
+Sections & Content
+1. Hero Section
+Logo (top-left)
+
+Tagline: "Grab, Go and Glow."
+
+Short Description:
+
+"NuBowl delivers nutritious overnight oats and protein smoothies made with clean ingredients for busy lifestyles."
+
+CTA Button: "View Our Menu" (smooth scroll to Products)
+
+Background: Soft gradient (#FFF5E4 to #C1D8C3) or hero image of Bheege Oats.
+
+2. About NuBowl
+Heading: "Wholesome Fuel for Your Day"
+
+Mission Statement:
+
+*"We make wholesome food accessible, convenient, and delicious. Every NuBowl is packed with 30g+ protein and crafted to keep you energized."*
+
+Key Values (icons + text):
+
+🌿 Nutrient-Dense
+
+⏱️ Ready-to-Eat
+
+🍓 Delicious Flavors
+
+3. Our Menu
+Sub-sections: Bheege Oats and Smoothies (toggle tabs or separate rows).
+
+Product Cards (4 items each, soft hover effect):
+
+Image (placeholder)
+
+Name/Price: Cinnamon Apple Crunch – $6.99
+
+Description: Spiced oats with apple topping.
+
+Note: *"
+18
+f
+o
+r
+3
+−
+p
+a
+c
+k
+∣
+18for3−pack∣33 for 6-pack | $10 flat delivery in Canada."*
+
+4. Testimonials
+Quote 1: "The Banana Beast Blend is my morning savior! So creamy and filling." – Jamie T.
+
+Quote 2: "Finally, a healthy breakfast that tastes like dessert!" – Priya S.
+
+Design: Carousel or staggered cards with soft #C1D8C3 background.
+
+5. Contact & Follow
+Simple Form: Name, Email, Message
+
+Contact Info:
+
+📧 hello@nubowl.ca
+
+📞 *+1 365 341 4310*
+
+Social Icons: Instagram (primary), TikTok, Facebook
+
+Footer: Copyright + subtle #6A9C89 accent line.
+
+Technical & UX Requirements
+Mobile-First: Fully responsive (breakpoints for tablet/desktop).
+
+Interactions:
+
+Sticky navbar with links to sections.
+
+Smooth scroll animations.
+
+Button hover effects (e.g., slight scale + #FFA725 accent).
+
+Performance: Optimized images, lazy loading.
