@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const handleScrollToMenu = () => {
@@ -10,59 +10,167 @@ export default function Hero() {
     }
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
-    <section className="gradient-bg min-h-screen flex items-center pt-16 lg:pt-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+    <section className="relative min-h-screen flex items-center pt-16 lg:pt-0 overflow-hidden">
+      {/* Background with gradient overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/20 mix-blend-multiply z-10"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
+          alt="Background image" 
+          className="w-full h-full object-cover object-center opacity-20"
+        />
+      </div>
+      
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 relative z-10">
         <div className="lg:flex lg:items-center lg:justify-between">
-          <div className="lg:w-1/2 mb-10 lg:mb-0">
+          <motion.div 
+            className="lg:w-1/2 mb-14 lg:mb-0"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div variants={itemVariants} className="flex items-center mb-4">
+              <span className="inline-flex items-center rounded-full bg-cream px-2.5 py-1 text-sm font-medium text-primary">
+                <Sparkles className="h-4 w-4 mr-1" />
+                Premium health nutrition
+              </span>
+            </motion.div>
+            
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold leading-tight text-primary"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold leading-tight text-primary"
+              variants={itemVariants}
             >
-              Grab, Go<br />and Glow.
+              Grab, Go<br />
+              <span className="text-accent">and Glow.</span>
             </motion.h1>
             
             <motion.p 
-              className="mt-4 text-lg md:text-xl text-gray-700 max-w-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mt-6 text-lg md:text-xl text-gray-700 max-w-lg font-light"
+              variants={itemVariants}
             >
               NuBowl delivers nutritious overnight oats and protein smoothies made with clean ingredients for busy lifestyles.
             </motion.p>
             
             <motion.div 
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-10 flex items-center"
+              variants={itemVariants}
             >
               <Button 
                 onClick={handleScrollToMenu}
-                className="bg-primary hover:bg-primary/90 text-white px-6 py-6 rounded-full transition duration-300 transform hover:scale-105"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-7 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg"
               >
-                View Our Menu
+                Explore Menu
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
+              
+              <a 
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="ml-6 text-primary font-medium hover:text-primary/80 transition-colors flex items-center"
+              >
+                Learn More
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </a>
+            </motion.div>
+          </motion.div>
+          
+          {/* Hero image with floating elements */}
+          <div className="lg:w-1/2 relative">
+            <motion.div
+              className="relative z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                alt="Delicious overnight oats with berries" 
+                className="rounded-3xl shadow-2xl mx-auto w-full max-w-lg h-[500px] object-cover" 
+              />
+              
+              {/* Decorative elements */}
+              <motion.div 
+                className="absolute -top-8 -right-8 w-20 h-20 bg-secondary rounded-full mix-blend-multiply"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 0.8, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              />
+              
+              <motion.div 
+                className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent/20 rounded-full mix-blend-multiply"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 0.7, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1 }}
+              />
+            </motion.div>
+            
+            {/* Floating stats */}
+            <motion.div
+              className="absolute top-10 -right-5 bg-white rounded-xl p-4 shadow-lg z-20"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+            >
+              <p className="text-sm font-medium text-gray-600">Protein</p>
+              <p className="text-2xl font-bold text-primary">30g+</p>
+            </motion.div>
+            
+            <motion.div
+              className="absolute bottom-12 -left-5 bg-white rounded-xl p-4 shadow-lg z-20"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
+            >
+              <p className="text-sm font-medium text-gray-600">Clean Ingredients</p>
+              <p className="text-2xl font-bold text-primary">100%</p>
             </motion.div>
           </div>
-          
-          <motion.div 
-            className="lg:w-1/2"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-              alt="Delicious overnight oats with berries" 
-              className="rounded-2xl shadow-xl mx-auto lg:ml-auto lg:mr-0 w-full max-w-md h-[400px] object-cover" 
-            />
-          </motion.div>
         </div>
       </div>
+      
+      {/* Scroll indicator */}
+      <motion.div 
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.6 }}
+      >
+        <p className="text-xs font-medium text-gray-500 mb-2">Scroll to explore</p>
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+          <motion.div 
+            className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2"
+            animate={{ 
+              y: [0, 12, 0],
+            }}
+            transition={{ 
+              duration: 1.5, 
+              repeat: Infinity,
+              repeatType: "loop"
+            }}
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }
