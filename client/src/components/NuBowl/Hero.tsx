@@ -156,10 +156,10 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.6 }}
       >
-        <p className="text-xs font-medium text-gray-500 mb-2">Scroll to explore</p>
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+        <p className="text-sm font-semibold text-primary mb-2">Scroll to explore</p>
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center shadow-md">
           <motion.div 
-            className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2"
+            className="w-1.5 h-1.5 bg-primary rounded-full mt-2"
             animate={{ 
               y: [0, 12, 0],
             }}

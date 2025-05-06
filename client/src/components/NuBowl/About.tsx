@@ -92,11 +92,12 @@ export default function About() {
               whileHover={{ y: -10 }}
             >
               <div 
-                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl mb-6 shadow-md group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl mb-6 shadow-md transition-colors duration-300"
               >
-                <div className="group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <div className="text-primary group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
                   {value.icon}
                 </div>
+                <div className="absolute inset-0 bg-primary rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 className="text-2xl font-poppins font-semibold mb-3 text-gray-800">{value.title}</h3>
               <p className="text-gray-600 text-lg">{value.description}</p>
