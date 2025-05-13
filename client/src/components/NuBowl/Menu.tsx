@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { oatsProducts, smoothieProducts } from "@/lib/data";
-import { ShoppingCart, Truck, Clock, Star } from "lucide-react";
+import { ShoppingCart, Truck, Clock, Star, Settings, Phone } from "lucide-react";
 
 export default function Menu() {
   const [activeTab, setActiveTab] = useState("oats");
@@ -114,7 +114,7 @@ export default function Menu() {
                             <Star key={i} className="w-4 h-4 fill-current" />
                           ))}
                         </div>
-                        <span className="text-xs text-gray-500 ml-2">(24 reviews)</span>
+                        {/* <span className="text-xs text-gray-500 ml-2">(24 reviews)</span> */}
                       </div>
                       
                       <p className="text-gray-600 mb-5">{product.description}</p>
@@ -125,8 +125,8 @@ export default function Menu() {
                           <span>Ready to eat</span>
                         </div>
                         <div className="flex items-center text-sm text-gray-500">
-                          <Truck className="w-4 h-4 mr-1 text-primary" />
-                          <span>48hr delivery</span>
+                          {/* <Truck className="w-4 h-4 mr-1 text-primary" /> */}
+                          {/* <span>48hr delivery</span> */}
                         </div>
                       </div>
                       
@@ -192,7 +192,7 @@ export default function Menu() {
                             <Star key={i} className="w-4 h-4 fill-current" />
                           ))}
                         </div>
-                        <span className="text-xs text-gray-500 ml-2">(24 reviews)</span>
+                        {/* <span className="text-xs text-gray-500 ml-2">(24 reviews)</span> */}
                       </div>
                       
                       <p className="text-gray-600 mb-5">{product.description}</p>
@@ -203,8 +203,8 @@ export default function Menu() {
                           <span>Ready to drink</span>
                         </div>
                         <div className="flex items-center text-sm text-gray-500">
-                          <Truck className="w-4 h-4 mr-1 text-primary" />
-                          <span>48hr delivery</span>
+                          {/* <Truck className="w-4 h-4 mr-1 text-primary" /> */}
+                          {/* <span>48hr delivery</span> */}
                         </div>
                       </div>
                       
@@ -239,12 +239,12 @@ export default function Menu() {
         >
           <div className="inline-block bg-white rounded-xl p-6 text-gray-700 shadow-lg backdrop-blur-sm">
             <div className="flex flex-col md:flex-row items-center justify-center">
-              <Truck className="w-6 h-6 text-primary mr-0 md:mr-3 mb-2 md:mb-0" />
+              <Phone className="w-6 h-6 text-primary mr-0 md:mr-3 mb-2 md:mb-0" />
               <p className="text-lg font-medium flex items-center">
-                <span className="text-primary font-bold mr-2">$10</span> 
-                flat delivery anywhere in Canada with 
-                <span className="text-primary font-bold mx-2">free shipping</span>
-                on orders over $60
+                Contact us for 
+                <span className="text-primary font-bold mx-2">Customization</span> 
+                and
+                <span className="text-primary font-bold mx-2">Bulk Orders</span>
               </p>
             </div>
           </div>

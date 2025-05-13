@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Leaf, Clock, Apple, HeartPulse, Dumbbell, Wheat } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -87,17 +88,16 @@ export default function About() {
           {keyValues.map((value, index) => (
             <motion.div 
               key={index}
-              className="bg-cream rounded-2xl p-8 sm:p-10 text-center transform transition-all duration-300 hover:-translate-y-2 shadow-lg group hover:shadow-xl"
+              className="bg-cream rounded-2xl p-8 sm:p-10 text-center shadow-lg group hover:shadow-xl"
               variants={itemVariants}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10, transition: { duration: 0.2 } }}
             >
               <div 
-                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl mb-6 shadow-md transition-colors duration-300"
+                className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl mb-6 shadow-md transition-all duration-300 relative group-hover:bg-primary"
               >
                 <div className="text-primary group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
-                  {value.icon}
+                  {React.cloneElement(value.icon, { className: "w-7 h-7", stroke: "currentColor" })}
                 </div>
-                <div className="absolute inset-0 bg-primary rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 className="text-2xl font-poppins font-semibold mb-3 text-gray-800">{value.title}</h3>
               <p className="text-gray-600 text-lg">{value.description}</p>
@@ -190,18 +190,18 @@ export default function About() {
                     <div className="flex flex-wrap justify-between items-center">
                       <div className="flex items-center mb-4 md:mb-0">
                         <img 
-                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" 
+                          src="" 
                           alt="Founder" 
                           className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm" 
                         />
                         <div className="ml-3">
-                          <p className="font-semibold text-gray-800">David Chen</p>
+                          <p className="font-semibold text-gray-800">Hardi Patel</p>
                           <p className="text-sm text-gray-500">Founder, NuBowl</p>
                         </div>
                       </div>
                       
                       <div className="flex items-center text-primary">
-                        <span className="font-semibold">Est. 2019</span>
+                        <span className="font-semibold">Est. 2025</span>
                         <span className="mx-2">•</span>
                         <span className="font-semibold">Toronto, Canada</span>
                       </div>

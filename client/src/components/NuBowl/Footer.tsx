@@ -215,7 +215,7 @@ export default function Footer() {
                 { name: "Testimonials", href: "#testimonials" },
                 { name: "Contact Us", href: "#contact" },
                 { name: "FAQ", href: "#" },
-                { name: "Delivery Information", href: "#" }
+                // { name: "Delivery Information", href: "#" }
               ].map((link, index) => (
                 <li key={index}>
                   <a 
@@ -240,13 +240,6 @@ export default function Footer() {
           <div>
             <h4 className="font-poppins font-semibold text-lg text-gray-800 mb-6">Contact Information</h4>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-primary mt-0.5 mr-3" />
-                <span className="text-gray-600">
-                  123 Health Street, Toronto<br />
-                  Ontario, Canada
-                </span>
-              </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-primary mr-3" />
                 <a href="tel:+13653414310" className="text-gray-600 hover:text-primary transition-colors">
@@ -255,8 +248,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-primary mr-3" />
-                <a href="mailto:hello@nubowl.ca" className="text-gray-600 hover:text-primary transition-colors">
-                  hello@nubowl.ca
+                <a href="mailto:nubowl365@gmail.com" className="text-gray-600 hover:text-primary transition-colors">
+                  nubowl365@gmail.com
                 </a>
               </li>
               <li className="flex items-center">
@@ -281,7 +274,7 @@ export default function Footer() {
               <li className="flex items-start">
                 <Truck className="h-5 w-5 text-primary mt-0.5 mr-3" />
                 <span className="text-gray-600">
-                  Fast and reliable delivery across Canada
+                  Fast and reliable delivery across GTA
                 </span>
               </li>
               <li className="flex items-start">
@@ -299,7 +292,7 @@ export default function Footer() {
           <p className="text-gray-500 mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} NuBowl. All rights reserved.
           </p>
-          <div className="flex space-x-6">
+          {/* <div className="flex space-x-6">
             <a href="#" className="text-gray-500 hover:text-primary text-sm transition-colors">
               Privacy Policy
             </a>
@@ -309,7 +302,7 @@ export default function Footer() {
             <a href="#" className="text-gray-500 hover:text-primary text-sm transition-colors">
               Cookie Policy
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

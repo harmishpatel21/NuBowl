@@ -107,8 +107,8 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-800">Email Us</h3>
-                    <a href="mailto:hello@nubowl.ca" className="mt-1 text-gray-600 hover:text-primary transition-colors">
-                      hello@nubowl.ca
+                    <a href="mailto:nubow365@gmail.com" className="mt-1 text-gray-600 hover:text-primary transition-colors">
+                      nubowl365@gmail.com
                     </a>
                   </div>
                 </div>
@@ -124,21 +124,6 @@ export default function Contact() {
                     <a href="tel:+13653414310" className="mt-1 text-gray-600 hover:text-primary transition-colors">
                       +1 365 341 4310
                     </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start group">
-                  <div className="flex-shrink-0">
-                    <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-800">Visit Us</h3>
-                    <p className="mt-1 text-gray-600">
-                      123 Health Street, Toronto<br />
-                      Ontario, Canada
-                    </p>
                   </div>
                 </div>
               </div>

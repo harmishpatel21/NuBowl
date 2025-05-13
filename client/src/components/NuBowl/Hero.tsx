@@ -32,7 +32,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/20 mix-blend-multiply z-10"></div>
         <img 
-          src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
+          src="https://images.unsplash.com/photo-1619854231899-33ee7003dd8d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b2F0cyUyMGphciUyMHdpdGglMjBmcnVpdHN8ZW58MHx8MHx8fDA%3D" 
           alt="Background image" 
           className="w-full h-full object-cover object-center opacity-20"
         />
@@ -104,7 +104,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1533007576165-faccd6a6a056?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Delicious overnight oats with berries" 
                 className="rounded-3xl shadow-2xl mx-auto w-full max-w-lg h-[500px] object-cover" 
               />

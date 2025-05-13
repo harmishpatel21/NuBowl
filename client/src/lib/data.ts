@@ -4,19 +4,19 @@ export const oatsProducts = [
     name: "Cinnamon Apple Crunch",
     price: "6.99",
     description: "Spiced oats with apple topping and crunchy granola.",
-    image: "https://images.unsplash.com/photo-1622542086299-32882d46be3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1668723980649-c3cc4b638199?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     name: "Berry Bliss Bowl",
     price: "7.49",
     description: "Creamy oats loaded with mixed berries and honey.",
-    image: "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1610441009633-b6ca9c6d4be2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     name: "Chocolate Peanut Protein",
     price: "7.99",
     description: "Chocolate oats with peanut butter and banana.",
-    image: "https://images.unsplash.com/photo-1626078489820-57768d8fab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1541809570-cce873416d94?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q2hvY29sYXRlJTIwb2F0cyUyMHdpdGglMjBwZWFudXQlMjBidXR0ZXIlMjBhbmQlMjBiYW5hbmEufGVufDB8fDB8fHww"
   },
   {
     name: "Tropical Paradise",
