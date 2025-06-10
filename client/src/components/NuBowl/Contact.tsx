@@ -24,7 +24,10 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
-  
+
+  // Replace with your Formspree endpoint
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/myzjebap"; // Replace with your real endpoint after signup
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -37,18 +40,23 @@ export default function Contact() {
   const onSubmit = async (values: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      await apiRequest("POST", "/api/contact", values);
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          message: values.message
+        })
+      });
+      if (!res.ok) throw new Error("Failed to send message");
       toast({
         title: "Message sent",
         description: "Thank you for contacting us! We'll get back to you soon.",
       });
       setIsSuccess(true);
       form.reset();
-      
-      // Reset success state after a few seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
+      setTimeout(() => setIsSuccess(false), 3000);
     } catch (error) {
       toast({
         title: "Something went wrong",
@@ -65,9 +73,9 @@ export default function Contact() {
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-white to-transparent"></div>
       <div className="absolute bottom-0 -right-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,10 +90,10 @@ export default function Contact() {
             Have questions or feedback? We'd love to hear from you. Drop us a message and we'll get back to you shortly.
           </p>
         </motion.div>
-        
+
         <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
           {/* Left side content */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-5 mb-16 lg:mb-0 lg:sticky lg:top-10"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -97,7 +105,7 @@ export default function Contact() {
               <p className="text-gray-600 mb-8">
                 Our team is available Monday through Friday, 9am to 5pm ET. We typically respond within 24 hours.
               </p>
-              
+
               <div className="space-y-8">
                 <div className="flex items-start group">
                   <div className="flex-shrink-0">
@@ -112,7 +120,7 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start group">
                   <div className="flex-shrink-0">
                     <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -127,26 +135,26 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-10 pt-8 border-t border-gray-100">
                 <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
                 <div className="flex space-x-5">
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="h-10 w-10 rounded-full bg-secondary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300"
                     aria-label="Follow us on Instagram"
                   >
                     <Instagram className="h-5 w-5" />
                   </a>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="h-10 w-10 rounded-full bg-secondary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300"
                     aria-label="Follow us on Twitter"
                   >
                     <Twitter className="h-5 w-5" />
                   </a>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="h-10 w-10 rounded-full bg-secondary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300"
                     aria-label="Follow us on Facebook"
                   >
@@ -156,9 +164,9 @@ export default function Contact() {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Right side form */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-7"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +176,7 @@ export default function Contact() {
             <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl relative overflow-hidden">
               {/* Success overlay */}
               {isSuccess && (
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center z-20"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -183,12 +191,12 @@ export default function Contact() {
                   </p>
                 </motion.div>
               )}
-              
+
               <h3 className="text-2xl font-poppins font-bold text-gray-800 mb-6">Send us a message</h3>
               <p className="text-gray-600 mb-8">
                 We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.
               </p>
-              
+
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -199,17 +207,17 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-gray-700 font-medium">Your Name</FormLabel>
                           <FormControl>
-                            <Input 
-                              placeholder="John Doe" 
-                              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
-                              {...field} 
+                            <Input
+                              placeholder="John Doe"
+                              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                              {...field}
                             />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={form.control}
                       name="email"
@@ -217,11 +225,11 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-gray-700 font-medium">Your Email</FormLabel>
                           <FormControl>
-                            <Input 
-                              type="email" 
-                              placeholder="john@example.com" 
-                              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
-                              {...field} 
+                            <Input
+                              type="email"
+                              placeholder="john@example.com"
+                              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                              {...field}
                             />
                           </FormControl>
                           <FormMessage />
@@ -229,7 +237,7 @@ export default function Contact() {
                       )}
                     />
                   </div>
-                  
+
                   <FormField
                     control={form.control}
                     name="message"
@@ -237,21 +245,21 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel className="text-gray-700 font-medium">Message</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="I'd like to know more about your delivery options..." 
-                            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" 
+                          <Textarea
+                            placeholder="I'd like to know more about your delivery options..."
+                            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                             rows={6}
-                            {...field} 
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  
+
                   <div className="pt-4">
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       disabled={isSubmitting}
                       className="w-full bg-primary hover:bg-primary/90 text-white py-6 px-6 rounded-xl text-lg font-medium shadow-lg hover:shadow-xl transition transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed"
                     >
@@ -273,14 +281,14 @@ export default function Contact() {
                   </div>
                 </form>
               </Form>
-              
+
               {/* Background decorative circles */}
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-secondary/20 rounded-full opacity-50"></div>
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-full opacity-50"></div>
             </div>
           </motion.div>
         </div>
-        
+
         {/* FAQ Section */}
         <motion.div
           className="mt-24 bg-white p-8 md:p-12 rounded-2xl shadow-lg"
@@ -295,7 +303,7 @@ export default function Contact() {
               Find answers to commonly asked questions about our products and services.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 bg-cream/30 rounded-xl">
               <h4 className="text-xl font-semibold text-gray-800 mb-2">How long do the products stay fresh?</h4>
@@ -303,21 +311,21 @@ export default function Contact() {
                 Our oats and smoothies stay fresh for up to 5 days in the refrigerator. We recommend consuming them within this timeframe for optimal taste and nutrition.
               </p>
             </div>
-            
+
             <div className="p-6 bg-cream/30 rounded-xl">
               <h4 className="text-xl font-semibold text-gray-800 mb-2">Do you ship nationwide?</h4>
               <p className="text-gray-600">
                 Yes, we offer shipping to all major cities across Canada with guaranteed 48-hour delivery to ensure your products arrive fresh and ready to enjoy.
               </p>
             </div>
-            
+
             <div className="p-6 bg-cream/30 rounded-xl">
               <h4 className="text-xl font-semibold text-gray-800 mb-2">Are your products allergen-free?</h4>
               <p className="text-gray-600">
                 We offer several allergen-free options. All products are clearly labeled with ingredients and potential allergens. Please check individual product descriptions.
               </p>
             </div>
-            
+
             <div className="p-6 bg-cream/30 rounded-xl">
               <h4 className="text-xl font-semibold text-gray-800 mb-2">How do I place a bulk order?</h4>
               <p className="text-gray-600">
