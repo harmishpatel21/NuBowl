@@ -14,18 +14,19 @@ interface NavbarProps {
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Menu", href: "#menu" },
+  { name: "Pricing", href: "#pricing" },
   { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
 
-export default function Navbar({ 
-  isScrolled, 
-  isMobile, 
-  showMobileMenu, 
-  toggleMobileMenu, 
-  closeMobileMenu 
+export default function Navbar({
+  isScrolled,
+  isMobile,
+  showMobileMenu,
+  toggleMobileMenu,
+  closeMobileMenu
 }: NavbarProps) {
-  
+
   const handleScrollTo = (id: string) => {
     const element = document.querySelector(id);
     if (element) {
@@ -35,12 +36,11 @@ export default function Navbar({
   };
 
   return (
-    <motion.nav 
-      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-md ${
-        isScrolled 
-          ? 'bg-white/90 shadow-lg' 
-          : 'bg-transparent'
-      }`}
+    <motion.nav
+      className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-md ${isScrolled
+        ? 'bg-white/90 shadow-lg'
+        : 'bg-transparent'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -49,7 +49,7 @@ export default function Navbar({
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             {/* Logo */}
-            <motion.div 
+            <motion.div
               className="flex items-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -61,7 +61,7 @@ export default function Navbar({
               <span className="ml-2 font-poppins font-semibold text-primary text-xl tracking-tight">NuBowl</span>
             </motion.div>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden sm:flex sm:items-center space-x-1">
             <div className="bg-white/70 backdrop-blur-sm rounded-full px-2 py-1 shadow-sm flex items-center">
@@ -75,8 +75,10 @@ export default function Navbar({
                   <a
                     href={link.href}
                     onClick={(e) => {
-                      e.preventDefault();
-                      handleScrollTo(link.href);
+                      if (link.href.startsWith("#")) {
+                        e.preventDefault();
+                        handleScrollTo(link.href);
+                      } // else let default navigation happen for /price
                     }}
                     className={`relative font-medium text-gray-700 hover:text-primary px-5 py-2 rounded-full text-sm transition-colors inline-block overflow-hidden group`}
                   >
@@ -86,14 +88,14 @@ export default function Navbar({
                 </motion.div>
               ))}
             </div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.4 }}
               className="ml-4"
             >
-              <Button 
+              <Button
                 className="bg-primary/90 hover:bg-primary text-white rounded-full px-5 flex items-center shadow-md"
                 onClick={() => alert("Coming soon: Online ordering")}
               >
@@ -102,10 +104,10 @@ export default function Navbar({
               </Button>
             </motion.div>
           </div>
-          
+
           {/* Mobile menu button */}
           <div className="flex items-center sm:hidden">
-            <button 
+            <button
               onClick={toggleMobileMenu}
               className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-primary focus:outline-none transition-colors`}
               aria-label={showMobileMenu ? "Close menu" : "Open menu"}
@@ -119,12 +121,12 @@ export default function Navbar({
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Navigation */}
-      <motion.div 
+      <motion.div
         className={`sm:hidden bg-white/95 backdrop-blur-md absolute w-full shadow-lg rounded-b-xl ${showMobileMenu ? 'block' : 'hidden'}`}
         initial={{ opacity: 0, height: 0 }}
-        animate={{ 
+        animate={{
           opacity: showMobileMenu ? 1 : 0,
           height: showMobileMenu ? 'auto' : 0
         }}
@@ -141,8 +143,10 @@ export default function Navbar({
               <a
                 href={link.href}
                 onClick={(e) => {
-                  e.preventDefault();
-                  handleScrollTo(link.href);
+                  if (link.href.startsWith("#")) {
+                    e.preventDefault();
+                    handleScrollTo(link.href);
+                  } // else let default navigation happen for /price
                 }}
                 className="block px-3 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
               >
@@ -150,14 +154,14 @@ export default function Navbar({
               </a>
             </motion.div>
           ))}
-          
+
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.3 }}
             className="pt-2"
           >
-            <Button 
+            <Button
               className="w-full bg-primary text-white py-5 rounded-lg hover:bg-primary/90 transition-colors shadow-md"
               onClick={() => alert("Coming soon: Online ordering")}
             >
